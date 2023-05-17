@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class SpawnHorManager : MonoBehaviour
 {
     public GameObject[] animalPrefabs;
-    private float spawnRangeX = 10.0f;
-    private float spawnPoseZ = 20.0f;
+    private float spawnRangeZ = 15.0f;
+    private float spawnPoseX = -25.0f;
     private float startDelay = 2;
     private float spawnInterval = 4.5f;
 
@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
     void SpawnRandomAnimal()
     {
         int animalIndex = Random.Range(0, animalPrefabs.Length);
-        Vector3 spawnPose = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPoseZ);
+        Vector3 spawnPose = new Vector3(spawnPoseX, 0, Random.Range(0, spawnRangeZ));
         Instantiate(animalPrefabs[animalIndex], spawnPose,
             animalPrefabs[animalIndex].transform.rotation);
     }
